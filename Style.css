@@ -1,0 +1,213 @@
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(45deg,#ff4e8a,#ff99ac);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#startScreen{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(45deg,#ff4e8a,#ff99ac);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+/* 💖 BOTÓN */
+#startBtn{
+  background:white;
+  color:#c9184a;
+  border:none;
+  padding:18px 28px;
+  font-size:20px;
+  border-radius:40px;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,0,0,0.25);
+  transition:all 0.3s ease;
+  animation:flotar 2s ease-in-out infinite;
+}
+
+/* al pasar mouse */
+#startBtn:hover{
+  transform:scale(1.08);
+  box-shadow:0 15px 35px rgba(0,0,0,0.3);
+}
+
+/* flotación suave */
+@keyframes flotar{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-8px); }
+}
+
+
+
+.fade{
+  opacity:0;
+  transform:translateY(15px);
+  transition:all 10s ease;
+}
+
+/* cuando aparecen */
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.card{
+  background:#e9dccf;
+  width:90%;
+  max-width:700px;
+  border-radius:20px;
+  padding:20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.text{
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+}
+
+
+.love{
+  margin-top:10px;
+  font-size: 30px;
+  font-weight:bold;
+}
+
+.contador{
+  margin-top:20px;
+}
+
+#tiempo{
+  font-weight:bold;
+}
+
+/* ❤️ CORAZÓN */
+.heart{
+  position:relative;
+  width:170px;
+  height:170px;
+  background:linear-gradient(145deg,#ff4d6d,#c9184a);
+  transform:rotate(-45deg) scale(0);
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.25);
+  opacity:0;
+  z-index:1;  /* 👈 */
+  
+  animation:
+    aparecer 1s ease forwards,
+    latido 1.6s ease-in-out infinite;
+  animation-delay:1s, 2s;
+}
+
+/* círculos superiores */
+.heart::before,
+.heart::after{
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  background:inherit;
+  border-radius:50%;
+}
+
+.heart::before{
+  top:-85px;
+  left:0;
+}
+
+.heart::after{
+  left:85px;
+  top:0;
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  background:inherit;
+  border-radius:50%;
+  z-index:1; /* 👈 */
+}
+
+/* entrada */
+@keyframes aparecer{
+  to{
+    opacity:1;
+    transform:rotate(-45deg) scale(1);
+  }
+}
+
+/* latido */
+@keyframes latido{
+  0%,100%{ transform:rotate(-45deg) scale(1); }
+  50%{ transform:rotate(-45deg) scale(1.08); }
+}
+
+/* 🐶 SNOOPY */
+.snoopy{
+  position:absolute;
+  width:85px;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%) rotate(45deg) scale(0);
+  opacity:0;
+  z-index:5;  /* 👈 LA MAGIA */
+
+  animation:snoopyPop 0.8s ease forwards;
+  animation-delay:2s;
+}
+
+@keyframes snoopyPop{
+  to{
+    opacity:1;
+    transform:translate(-50%, -50%) rotate(45deg) scale(1);
+  }
+}
+
+/* contenedor fondo */
+#snoopys-bg{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* cada snoopy */
+.snoopy-bg{
+  position:absolute;
+  width:65px;
+  opacity:0.15; /* 👈 importante, más suave */
+  animation:flotar 6s ease-in-out infinite;
+}
+
+/* flotación */
+@keyframes flotar{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-15px); }
+}
+
+/* tarjeta encima */
+.card{
+  position:relative;
+  z-index:5;
+}
+
+/* pantalla inicio más arriba */
+#startScreen{
+  z-index:999;
+}
+
+
+
+
+
+
+
