@@ -205,37 +205,51 @@ body{
   z-index:999;
 }
 
-/* =========================
-   AJUSTES PARA CELULAR
-========================= */
-@media (max-width: 600px){
+/* ===================================
+   📱 MODO CELULAR (IPHONE)
+=================================== */
+@media screen and (max-width: 600px){
 
   body{
-    padding: 10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
   }
 
   .card{
-    width: 95%;
-    padding: 20px;
-    margin: auto;
+    width:95%;
+    padding:20px;
+    text-align:center;
+
+    /* cambiamos a formato vertical */
+    display:flex;
+    flex-direction:column;
+    align-items:center;
   }
 
-  .mensaje{
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
-  }
-
+  /* corazón arriba */
   .heart{
-    transform: scale(0.8);
-    margin-top: 20px;
+    order:-1;   /* lo manda arriba */
+    margin-bottom:20px;
+    transform:scale(0.85);
   }
 
-  #contador{
-    font-size: 14px;
-    text-align: center;
+  /* texto */
+  .text{
+    font-size:16px;
+  }
+
+  .love{
+    font-size:22px;
+  }
+
+  .contador{
+    font-size:14px;
+    margin-top:15px;
   }
 }
+
 
 
 
